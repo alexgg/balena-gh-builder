@@ -52,6 +52,8 @@ jobs:
         run: |
           cp -r $(pwd)/meta-balena-block $(pwd)/src/layers/
           echo 'BBLAYERS += "${TOPDIR}/../layers/meta-balena-block"' >> src/layers/meta-balena-raspberrypi/conf/samples/bblayers.conf.sample
+          echo 'SOURCE_MIRROR_URL = "http://159.69.136.182/downloads"' >> src/layers/meta-balena-raspberrypi/conf/samples/local.conf.sample
+          echo 'SSTATE_MIRRORS = "file://.* http://159.69.136.182/sstate-cache/PATH"' >> src/layers/meta-balena-raspberrypi/conf/samples/local.conf.sample
           target="balena-initramfs"
           $(pwd)/src/balena-yocto-scripts/build/balena-build.sh -d ${{ inputs.board }} -i "${target}" -t ${{ secrets.BALENA_TOKEN }} -s ${{ github.workspace }}
           manifest="${target}-${{ inputs.board }}.manifest"
