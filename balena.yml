@@ -1,0 +1,8 @@
+name: balenaOS
+description: >-
+  a balenaOS hostapp
+version: 0.0.1
+type: sw.app
+data:
+  arch: "%ARCH%"
+  kernel-version: "%KERNEL_VERSION%"

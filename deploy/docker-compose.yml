@@ -1,0 +1,5 @@
+version: '2'
+services:
+  host-app:
+    image: /path/to/container/image
+
